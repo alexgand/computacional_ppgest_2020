@@ -1,5 +1,5 @@
 ##################
-# OTIMIZADOR NEWTON RAPSON PARA FUNCOES DE APENAS DUAS VARIÁVEIS (x,y)
+# OTIMIZADOR NEWTON RAPSON PARA FUNCOES DE APENAS DUAS VARIÁVEIS (x,y), COM RESTRIÇÕES.
 ##################
 
 # funcao (exercício 5 da lista 1):
