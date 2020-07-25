@@ -31,6 +31,7 @@ otimizador_newton_rapson <- function(f0, f1x, f1y, f1lambda, f2xx, f2yy, f2lambd
   # f0 é a função a ser otimizada
   # f1x é a primeira derivada de f0 em relação à x
   # f1y é a primeira derivada de f0 em relação à y
+  # f1lambda é a primeira derivada de f0 em relação à lambda
   # f2xx é a segunda derivada de f0 em relação à xx
   # f2xy é a segunda derivada de f0 em relação à xy
   # f2yy é a segunda derivada de f0 em relação à xy
@@ -84,4 +85,5 @@ otimizador_newton_rapson <- function(f0, f1x, f1y, f1lambda, f2xx, f2yy, f2lambd
 }
 
 resposta = otimizador_newton_rapson(f0, f1x, f1y, f1lambda, f2xx, f2yy, f2lambdalambda, f2xy, f2yx, f2xlambda, f2ylambda, f2lambdax, f2lambday, cc_max, x0)
+print('Pontos encontrados (x, y, lambda):')
 print(resposta)
