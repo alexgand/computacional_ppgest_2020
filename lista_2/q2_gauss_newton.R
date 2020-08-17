@@ -5,6 +5,10 @@
 # NEWTON-RAPHSON NORMAL - APLICACAO REGRESSAO NAO LINEAR:
 ##################
 
+# limpa variaveis na memoria:
+rm(list=ls())
+par(mfrow=c(1,1)) # limpa layout
+
 # gera dados simulados:
 set.seed(0)
 n = 200
@@ -23,7 +27,7 @@ plot(x,y)
 # chute inicial:
 x0 = rbind(50,-0.06)
 
-# máximo critério de convergência:
+# maximo criterio de convergencia:
 cc_max = 0.0001
 cc = 10
 
@@ -36,7 +40,7 @@ gradiente_da_f <- function(x0,x,y)
   
   mu = b0 * exp(b1*x)
   
-  # derivadas primeiras em relação à b0 e à b1
+  # derivadas primeiras em relacao aa b0 e aa b1
   grad[1] =  - sum( ( y - mu ) * exp(b1 * x) )
   grad[2] =  - sum( ( y - mu ) * mu * x) 
 
@@ -83,7 +87,7 @@ resposta = otimizador_newton_rapson(cc_max, cc, x0, x, y)
 print('Parametros obtidos com NEWTON-RAPSON:')
 print(resposta)
 
-# conclusao: NEWTON RAPSON AQUI só funciona com chute inicial PRÓXIMO ao ponto verdadeiro.
+# conclusao: NEWTON RAPSON AQUI só funciona com chute inicial PROXIMO ao ponto verdadeiro.
 
 
 ################
