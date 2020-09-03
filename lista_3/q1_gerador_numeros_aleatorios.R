@@ -155,23 +155,18 @@ pmf_conjunta = function(variaveis, n, p)
 
 # parametro escolhido arbitrariamente:
 p = 0.4
-n = 10
+n = 12
 
-# limite superior de probabilidade para definir os intervalos:
-limite_superior = 0.99
+# todas as primeiras possiveis combinacoes de valores de x e de y ateh n:
 
-# todas as primeiras possiveis combinacoes de valores de x e de y ateh 15, ainda sem saber se as probs atingem o limite superior:
-
-x_range = 0:15
-y_range = 0:15
+x_range = 0:n
+y_range = 0:n
 vars = expand.grid(x_range,y_range)
 
-choose(n,as.numeric(vars[i,][2]))
-
-# calcula as probabilidades ateh o totalizar limite superior:
+# calcula as probabilidades:
 prob = c(0)
-i = 1 # contador
-while( sum(prob) < limite_superior)
+
+for ( i in 1:dim(vars)[1])
 {
   prob = c(prob, pmf_conjunta(vars[i,],n,p))
   i = i + 1
@@ -180,23 +175,22 @@ while( sum(prob) < limite_superior)
 # agora define intervalos (probabilidade acumulada):
 
 ints = cumsum(prob)
-ints = ints[ints <= limite_superior]
 ints = c(ints ,1)
 
-conjunta_simulada = matrix(0, ncol=2, nrow=RE)
+bivariada_simulada = matrix(0, ncol=2, nrow=RE)
 
 # veh em qual intervalo a uniforme[0,1] caiu, essa eh a nossa variavel gerada de interesse:
 for (i in 1:RE){
   unif <- runif(1)
   posicao = sum(unif>ints)
-  conjunta_simulada[i,1] = as.numeric(vars[posicao,1])
-  conjunta_simulada[i,2] = as.numeric(vars[posicao,2])
+  bivariada_simulada[i,1] = as.numeric(vars[posicao,1])
+  bivariada_simulada[i,2] = as.numeric(vars[posicao,2])
 }
 
 # resultado final:
-print(conjunta_simulada)
+print(bivariada_simulada)
 
 # histogramas:
 layout(1:2)
-hist(conjunta_simulada[,1])
-hist(conjunta_simulada[,2])
+hist(bivariada_simulada[,1])
+hist(bivariada_simulada[,2])
