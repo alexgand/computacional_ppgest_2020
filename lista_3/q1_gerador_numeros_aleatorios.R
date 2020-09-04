@@ -179,7 +179,7 @@ ints = c(ints ,1)
 
 bivariada_simulada = matrix(0, ncol=2, nrow=RE)
 
-# veh em qual intervalo a uniforme[0,1] caiu, essa eh a nossa variavel gerada de interesse:
+# ve em qual intervalo a uniforme[0,1] caiu, essa eh a nossa variavel gerada de interesse:
 for (i in 1:RE){
   unif <- runif(1)
   posicao = sum(unif>ints)
