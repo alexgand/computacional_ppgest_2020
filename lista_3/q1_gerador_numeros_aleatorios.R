@@ -157,7 +157,7 @@ pmf_conjunta = function(variaveis, n, p)
 p = 0.4
 n = 12
 
-# todas as primeiras possiveis combinacoes de valores de x e de y ateh n:
+# todas as possiveis combinacoes de valores de x e de y ateh n:
 
 x_range = 0:n
 y_range = 0:n
